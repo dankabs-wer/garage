@@ -269,50 +269,72 @@
       color: var(--dark);
     }
 
-    .step-list { padding: 4px 0; }
-    .step {
+    /* ── HOW IT WORKS STEPS ── */
+    .how-section {
+      padding: 0 16px;
+      margin-bottom: 20px;
+    }
+    .how-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .how-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 6px;
+    }
+    .how-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .how-steps { display: flex; flex-direction: column; gap: 0; }
+
+    .how-step-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .how-step {
+      background: #fff;
+      border-radius: 16px;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 2px 16px rgba(232,0,111,0.07);
+      padding: 18px 18px;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      padding: 16px 20px;
-      border-bottom: 1px solid #faf0f5;
-      transition: background 0.15s;
+      gap: 16px;
+      width: 100%;
     }
-    .step:last-child { border-bottom: none; }
-    .step:hover { background: #fffafd; }
-
-    .step-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
+    .how-step-emoji {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: var(--pink-subtle);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
       flex-shrink: 0;
-      margin-top: 1px;
     }
-    .step-icon.pink { background: linear-gradient(135deg, var(--pink), var(--pink-light)); }
-    .step-icon.check {
-      background: var(--green-bg);
-      border: 2px solid var(--green);
-      color: var(--green);
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .step-body {}
-    .step-title {
+    .how-step-body { flex: 1; }
+    .how-step-title {
       font-size: 15px;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
-    .step-desc {
-      font-size: 13px;
+    .how-step-desc {
+      font-size: 13.5px;
       color: var(--muted);
-      font-weight: 400;
-      line-height: 1.45;
+      line-height: 1.5;
+    }
+    .how-connector {
+      width: 2px;
+      height: 28px;
+      background: var(--border);
+      margin-left: 39px;
     }
 
     /* ── TRUST STRIP ── */
@@ -546,35 +568,45 @@
   <p class="cta-sub">Secure &amp; encrypted</p>
 
   <!-- STEPS -->
-  <div class="section">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-label">Quick Start Guide</div>
-        <div class="card-header-title">3 steps to your reward</div>
+  <div class="how-section">
+    <div class="how-header">
+      <div class="how-label">How It Works</div>
+      <div class="how-title">Simple 3-Step Process</div>
+    </div>
+    <div class="how-steps">
+
+      <div class="how-step-wrap">
+        <div class="how-step">
+          <div class="how-step-emoji">📧</div>
+          <div class="how-step-body">
+            <div class="how-step-title">Enter a valid email</div>
+            <div class="how-step-desc">For confirmation and updates on your reward status</div>
+          </div>
+        </div>
+        <div class="how-connector"></div>
       </div>
-      <div class="step-list">
-        <div class="step">
-          <div class="step-icon check">✓</div>
-          <div class="step-body">
-            <div class="step-title">Enter a valid email</div>
-            <div class="step-desc">For confirmation and updates on your reward status</div>
+
+      <div class="how-step-wrap">
+        <div class="how-step">
+          <div class="how-step-emoji">🎯</div>
+          <div class="how-step-body">
+            <div class="how-step-title">Complete 4–5 deals</div>
+            <div class="how-step-desc">Includes free trials, app downloads, and simple offers. You choose what works for you.</div>
           </div>
         </div>
-        <div class="step">
-          <div class="step-icon check">✓</div>
-          <div class="step-body">
-            <div class="step-title">Complete 4–5 deals</div>
-            <div class="step-desc">More deals, more rewards — each one gets you closer</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-icon check">✓</div>
-          <div class="step-body">
-            <div class="step-title">Must be 18 years or older</div>
-            <div class="step-desc">Required to participate in this offer</div>
+        <div class="how-connector"></div>
+      </div>
+
+      <div class="how-step-wrap">
+        <div class="how-step">
+          <div class="how-step-emoji">🎁</div>
+          <div class="how-step-body">
+            <div class="how-step-title">Get Rewarded</div>
+            <div class="how-step-desc">Receive your $500 Garage gift card after completing the steps. Delivered by email within 24–48 hrs.</div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
