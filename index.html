@@ -1,782 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
   <title>Garage $500 Gift Card</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --pink: #E8006F;
-      --pink-light: #FF3D9A;
-      --pink-glow: rgba(232,0,111,0.18);
-      --pink-subtle: #FFF0F7;
-      --dark: #1a0a12;
-      --card-bg: #ffffff;
-      --text: #1a0a12;
-      --muted: #7a6070;
-      --border: #f0dce8;
-      --green: #00B87A;
-      --green-bg: #F0FDF8;
-      --radius: 18px;
-      --shadow: 0 4px 32px rgba(232,0,111,0.10);
-    }
-
     body {
       font-family: 'Inter', sans-serif;
-      background: #fdf5f9;
-      color: var(--text);
+      background: #f0f0f0;
       min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── HEADER ── */
-    .header {
+    /* ── CARD WRAPPER ── */
+    .page-card {
       background: #fff;
-      border-bottom: 1.5px solid var(--border);
-      padding: 16px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-logo {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      color: var(--pink);
-      text-transform: uppercase;
-    }
-    .header-logo span { color: var(--dark); }
-
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(160deg, #fff 0%, #FFF0F7 60%, #ffe4f1 100%);
-      padding: 48px 20px 40px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(232,0,111,0.12), transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: -60px;
-      width: 220px; height: 220px;
-      background: radial-gradient(circle, rgba(232,0,111,0.08), transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--pink-subtle);
-      border: 1.5px solid rgba(232,0,111,0.25);
-      color: var(--pink);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-    }
-    .badge::before { content: '🎁'; font-size: 13px; }
-
-    .hero-title {
-      font-size: clamp(32px, 9vw, 52px);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-    .hero-title .amount {
-      color: var(--pink);
-      display: inline-block;
-      position: relative;
-    }
-    .hero-title .amount::after {
-      content: '';
-      position: absolute;
-      bottom: 2px; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--pink), var(--pink-light));
-      border-radius: 4px;
-      opacity: 0.35;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 32px;
-      line-height: 1.5;
-    }
-
-    /* Gift card visual */
-    .giftcard-visual {
-      width: min(320px, 88vw);
-      margin: 0 auto 32px;
-      background: linear-gradient(135deg, #8B004A 0%, #C0006A 40%, #E8006F 75%, #FF3D9A 100%);
-      border-radius: 20px;
-      padding: 28px 24px 22px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(232,0,111,0.5), 0 4px 20px rgba(255,61,154,0.3);
-    }
-    .giftcard-visual::before {
-      content: '';
-      position: absolute;
-      top: -30px; right: -30px;
-      width: 160px; height: 160px;
-      background: radial-gradient(circle, rgba(232,0,111,0.4), transparent 65%);
-      border-radius: 50%;
-    }
-    .giftcard-visual::after {
-      content: '';
-      position: absolute;
-      bottom: -20px; left: -20px;
-      width: 120px; height: 120px;
-      background: radial-gradient(circle, rgba(255,61,154,0.25), transparent 65%);
-      border-radius: 50%;
-    }
-    .card-brand {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-      position: relative; z-index: 1;
-    }
-    .card-label {
-      font-size: 11px;
-      color: rgba(255,255,255,0.5);
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      position: relative; z-index: 1;
-    }
-    .card-value {
-      font-size: 44px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: -1px;
-      position: relative; z-index: 1;
-      line-height: 1;
-    }
-    .card-value sup {
-      font-size: 22px;
-      vertical-align: top;
-      margin-top: 6px;
-      display: inline-block;
-    }
-    .card-stars {
-      font-size: 10px;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 3px;
-      margin-top: 16px;
-      position: relative; z-index: 1;
-    }
-
-    /* ── CTA BUTTON ── */
-    .cta-wrap { padding: 0 20px; text-align: center; margin-bottom: 14px; }
-    .cta-btn {
-      display: block;
       width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, var(--pink), var(--pink-light));
-      color: #fff;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -0.2px;
-      padding: 18px 24px;
-      border-radius: 14px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 28px rgba(232,0,111,0.4), 0 2px 8px rgba(232,0,111,0.2);
-      transition: transform 0.15s, box-shadow 0.15s;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-      animation: shimmer 2.5s infinite;
-    }
-    @keyframes shimmer {
-      0% { left: -100%; }
-      100% { left: 200%; }
-    }
-    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(232,0,111,0.5); }
-    .cta-btn:active { transform: translateY(0); }
-    .cta-sub {
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-    .cta-sub::before { content: '🔒'; font-size: 12px; }
-
-    /* ── STEPS CARD ── */
-    .section { padding: 0 16px; margin-bottom: 20px; }
-    .card {
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      border: 1.5px solid var(--border);
-    }
-    .card-header {
-      background: linear-gradient(135deg, var(--pink-subtle), #fff8fc);
-      border-bottom: 1.5px solid var(--border);
-      padding: 18px 20px 14px;
-    }
-    .card-header-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 2px;
-    }
-    .card-header-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--dark);
-    }
-
-    /* ── HOW IT WORKS STEPS ── */
-    .how-section {
-      padding: 0 16px;
-      margin-bottom: 20px;
-    }
-    .how-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .how-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--pink);
-      margin-bottom: 6px;
-    }
-    .how-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--dark);
-    }
-
-    .how-steps { display: flex; flex-direction: column; gap: 0; }
-
-    .how-step-wrap {
+      max-width: 420px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      position: relative;
+      padding-bottom: 100px;
     }
-    .how-step {
-      background: #fff;
-      border-radius: 16px;
-      border: 1.5px solid var(--border);
-      box-shadow: 0 2px 16px rgba(232,0,111,0.07);
-      padding: 18px 18px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      width: 100%;
+
+    /* ── TOP SECTION ── */
+    .top-section {
+      padding: 36px 24px 24px;
+      text-align: center;
+      border-bottom: 1px solid #f0f0f0;
     }
-    .how-step-emoji {
-      width: 48px; height: 48px;
-      border-radius: 14px;
-      background: var(--pink-subtle);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-      flex-shrink: 0;
+    .logo {
+      font-size: 32px;
+      font-weight: 800;
+      color: #ff007a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .how-step-body { flex: 1; }
-    .how-step-title {
+    .page-title {
+      font-size: 23px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+    .page-subtitle {
+      font-size: 13px;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    /* ── QUICK START ── */
+    .section {
+      padding: 22px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .section-title {
       font-size: 15px;
       font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 4px;
-    }
-    .how-step-desc {
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .how-connector {
-      width: 2px;
-      height: 28px;
-      background: var(--border);
-      margin-left: 39px;
+      color: #e8006f;
+      margin-bottom: 16px;
     }
 
-    /* ── TRUST STRIP ── */
-    .trust-strip {
+    .step-list { display: flex; flex-direction: column; gap: 14px; }
+    .step {
       display: flex;
-      justify-content: center;
-      gap: 0;
-      padding: 0 16px;
-      margin-bottom: 20px;
-    }
-    .trust-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      background: #fff;
-      border: 1.5px solid var(--border);
-      padding: 16px 10px;
-      text-align: center;
-    }
-    .trust-item:first-child { border-radius: 14px 0 0 14px; border-right: none; }
-    .trust-item:last-child { border-radius: 0 14px 14px 0; border-left: none; }
-    .trust-item:not(:first-child):not(:last-child) { border-left: none; }
-    .trust-icon { font-size: 20px; }
-    .trust-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--dark);
-      line-height: 1.3;
-    }
-
-    /* ── FAQ ── */
-    .faq-list { padding: 4px 0; }
-    .faq-item {
-      border-bottom: 1px solid #faf0f5;
-    }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      align-items: flex-start;
       gap: 12px;
-      cursor: pointer;
-      text-align: left;
-      font-family: 'Inter', sans-serif;
     }
-    .faq-q-text {
+    .step-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid #e8006f;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-check svg {
+      width: 11px; height: 11px;
+      stroke: #e8006f;
+      stroke-width: 2.5;
+      fill: none;
+    }
+    .step-body {}
+    .step-title {
       font-size: 14px;
       font-weight: 700;
-      color: var(--dark);
+      color: #1a1a1a;
+      margin-bottom: 2px;
     }
-    .faq-chevron {
-      color: var(--pink);
-      font-size: 18px;
-      font-weight: 900;
-      transition: transform 0.2s;
-      flex-shrink: 0;
-    }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-a {
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.6;
-      padding: 0 20px 16px;
-      display: none;
-    }
-    .faq-item.open .faq-a { display: block; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 28px 20px 40px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.8;
-    }
-    .footer-trust {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-    .footer-trust span {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-weight: 600;
-      font-size: 11.5px;
-      color: #7a6070;
-    }
-    .footer-trust span::before { opacity: 0.7; }
-
-    /* ── PULSE ANIMATION on badge ── */
-    @keyframes pulse-pink {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(232,0,111,0.3); }
-      50% { box-shadow: 0 0 0 6px rgba(232,0,111,0); }
-    }
-    .badge { animation: pulse-pink 2.5s infinite; }
-
-    /* ── LIVE FEED ── */
-    .live-dot {
-      display: inline-block;
-      width: 9px; height: 9px;
-      background: #2563EB;
-      border-radius: 50%;
-      animation: livepulse 1.8s infinite;
-      flex-shrink: 0;
-    }
-    @keyframes livepulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.45); }
-      50% { box-shadow: 0 0 0 5px rgba(37,99,235,0); }
+    .step-desc {
+      font-size: 12.5px;
+      color: #e8006f;
+      font-weight: 400;
     }
 
+    /* ── LIVE ACTIVITY ── */
     .live-section {
-      padding: 0 16px;
-      margin-bottom: 20px;
+      padding: 18px 20px;
+      border-bottom: 1px solid #f0f0f0;
       text-align: center;
     }
     .live-label {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      color: #2563EB;
+      color: #2563eb;
       font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
       margin-bottom: 12px;
       justify-content: center;
     }
-    .live-popup-wrap {
-      display: flex;
-      justify-content: center;
+    .live-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #2563eb;
+      border-radius: 50%;
+      animation: livepulse 1.8s infinite;
+    }
+    @keyframes livepulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.45); }
+      50%       { box-shadow: 0 0 0 5px rgba(37,99,235,0); }
     }
     .live-popup {
       background: #fff;
       border: 1.5px solid #dbeafe;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(37,99,235,0.10);
-      padding: 14px 18px;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(37,99,235,0.09);
+      padding: 12px 16px;
       display: flex;
       align-items: center;
-      gap: 13px;
-      width: 100%;
-      max-width: 400px;
-      min-height: 72px;
+      gap: 12px;
+      text-align: left;
     }
     .live-avatar {
-      width: 42px; height: 42px;
+      width: 38px; height: 38px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 800;
+      font-size: 13px; font-weight: 800;
       color: #fff;
       flex-shrink: 0;
-      letter-spacing: 0.5px;
     }
-    .live-body { flex: 1; min-width: 0; text-align: left; }
-    .live-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 2px;
-    }
-    .live-action {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-    .live-time {
-      font-size: 11.5px;
-      color: #93a8c4;
-      font-weight: 500;
-      white-space: nowrap;
-      align-self: flex-start;
-      margin-top: 2px;
-    }
+    .live-body { flex: 1; }
+    .live-name  { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 2px; }
+    .live-action{ font-size: 12.5px; color: #6b7280; line-height: 1.4; }
+    .live-time  { font-size: 11px; color: #9ca3af; white-space: nowrap; align-self: flex-start; margin-top: 1px; }
     @keyframes popIn {
-      from { opacity: 0; transform: translateY(8px) scale(0.98); }
+      from { opacity: 0; transform: translateY(6px) scale(0.98); }
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
-    .live-popup.animating {
-      animation: popIn 0.4s cubic-bezier(0.22,1,0.36,1);
+    .live-popup.animating { animation: popIn 0.35s cubic-bezier(0.22,1,0.36,1); }
+
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 22px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .faq-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e8006f;
+      margin-bottom: 14px;
+    }
+    .faq-item { border-bottom: 1px solid #f0f0f0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 13px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+    }
+    .faq-q-text {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .faq-chevron {
+      font-size: 16px;
+      color: #9ca3af;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.6;
+      padding-bottom: 13px;
+      display: none;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FOOTER ── */
+    .footer-text {
+      padding: 18px 20px 10px;
+      text-align: center;
+      font-size: 11.5px;
+      color: #9ca3af;
+      line-height: 1.8;
     }
 
-    @media (max-width: 380px) {
-      .hero { padding: 36px 14px 32px; }
-      .card-value { font-size: 38px; }
-      .giftcard-visual { padding: 22px 18px 18px; }
+    /* ── STICKY CTA ── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 420px;
+      padding: 12px 20px 28px;
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+      z-index: 200;
+    }
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: #e8006f;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 17px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      letter-spacing: 0.2px;
+      box-shadow: 0 4px 20px rgba(232,0,111,0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,0,111,0.45); }
+    .cta-btn:active { transform: translateY(0); }
+
+    @media (max-width: 420px) {
+      .sticky-cta { max-width: 100%; }
+      .page-card  { max-width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-logo">GARAGE</div>
-  </header>
+<div class="page-card">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="badge">Limited Time Offer</div>
-
-    <h1 class="hero-title">
-      Claim Your<br>
-      <span class="amount">$500</span> Gift Card
-    </h1>
-    <p class="hero-subtitle">Complete a few simple steps and unlock<br>your exclusive Garage reward</p>
-
-    <!-- Gift Card Visual -->
-    <div class="giftcard-visual">
-      <div class="card-brand">GARAGE</div>
-      <div class="card-label">Gift Card</div>
-      <div class="card-value"><sup>$</sup>500</div>
-      <div class="card-stars">•••• •••• •••• ••••</div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-wrap">
-    <a class="cta-btn" href="https://trksy.org/aff_c?offer_id=3857&aff_id=3471" target="_blank" rel="noopener">
-      Start Earning Now →
-    </a>
-  </div>
-  <p class="cta-sub">Secure &amp; encrypted</p>
-
-  <!-- STEPS -->
-  <div class="how-section">
-    <div class="how-header">
-      <div class="how-label">How It Works</div>
-      <div class="how-title">Simple 3-Step Process</div>
-    </div>
-    <div class="how-steps">
-
-      <div class="how-step-wrap">
-        <div class="how-step">
-          <div class="how-step-emoji">📧</div>
-          <div class="how-step-body">
-            <div class="how-step-title">Enter a valid email</div>
-            <div class="how-step-desc">For confirmation and updates on your reward status</div>
-          </div>
-        </div>
-        <div class="how-connector"></div>
-      </div>
-
-      <div class="how-step-wrap">
-        <div class="how-step">
-          <div class="how-step-emoji">🎯</div>
-          <div class="how-step-body">
-            <div class="how-step-title">Complete 4–5 deals</div>
-            <div class="how-step-desc">Includes free trials, app downloads, and simple offers. You choose what works for you.</div>
-          </div>
-        </div>
-        <div class="how-connector"></div>
-      </div>
-
-      <div class="how-step-wrap">
-        <div class="how-step">
-          <div class="how-step-emoji">🎁</div>
-          <div class="how-step-body">
-            <div class="how-step-title">Get Rewarded</div>
-            <div class="how-step-desc">Receive your $500 Garage gift card after completing the steps. Delivered by email within 24–48 hrs.</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+  <!-- TOP -->
+  <div class="top-section">
+    <div class="logo">GARAGE</div>
+    <div class="page-title">Garage $500 Giftcard</div>
+    <div class="page-subtitle">Complete the steps below to unlock your reward</div>
   </div>
 
-  <!-- LIVE ACTIVITY -->
-  <div class="live-section">
-    <div class="live-label">
-      <span class="live-dot"></span> Live Activity
-    </div>
-    <div class="live-popup-wrap">
-      <div class="live-popup" id="livePopup"></div>
-    </div>
-  </div>
-
-  <!-- TRUST STRIP -->
-  <div class="trust-strip">
-    <div class="trust-item">
-      <div class="trust-icon">🔒</div>
-      <div class="trust-label">SSL<br>Secured</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">🛡️</div>
-      <div class="trust-label">Encrypted<br>Data</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">✅</div>
-      <div class="trust-label">Verified<br>Offer</div>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">💯</div>
-      <div class="trust-label">100%<br>Safe</div>
-    </div>
-  </div>
-
-  <!-- CTA repeat -->
-  <div class="cta-wrap" style="margin-bottom: 20px;">
-    <a class="cta-btn" href="https://trksy.org/aff_c?offer_id=3857&aff_id=3471" target="_blank" rel="noopener">
-      Start Earning Now →
-    </a>
-  </div>
-
-  <!-- FAQ -->
+  <!-- QUICK START GUIDE -->
   <div class="section">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-label">Common Questions</div>
-        <div class="card-header-title">Everything you need to know</div>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-text">How long do the deals take?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-a">Most deals can be completed in just a few minutes each. Once all your deals are verified, your $500 Garage gift card reward is processed and sent to your email.</div>
+    <div class="section-title">Quick Start Guide</div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-check">
+          <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
         </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-text">What kind of deals are included?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-a">Deals include free trials, sample offers, and partner sign-ups. Each is quick to complete and gets you one step closer to claiming your full $500 gift card.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-text">Is this offer really free?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-a">Yes — there's no upfront cost to claim your gift card. Simply complete the required steps and your reward will be unlocked and delivered to your inbox.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-q-text">Who is eligible to participate?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-a">Anyone aged 18 or older with a valid email address can participate. The offer is available while supplies last, so don't wait too long!</div>
+        <div class="step-body">
+          <div class="step-title">Enter a valid email</div>
+          <div class="step-desc">For confirmation and updates</div>
         </div>
       </div>
+      <div class="step">
+        <div class="step-check">
+          <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Complete 4–5 deals</div>
+          <div class="step-desc">More deals, more rewards</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-check">
+          <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Must be 18 years or older</div>
+          <div class="step-desc">Required to participate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMON QUESTIONS -->
+  <div class="faq-section">
+    <div class="faq-title">Common Questions</div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How long do the deals take?</span>
+        <span class="faq-chevron">⌄</span>
+      </button>
+      <div class="faq-a">Most deals only take 4–10 minutes to complete. The more deals you finish, the bigger your reward.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What kind of deals are included?</span>
+        <span class="faq-chevron">⌄</span>
+      </button>
+      <div class="faq-a">Deals include free trials, app downloads, surveys, and simple sign-ups from trusted partners.</div>
     </div>
   </div>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-trust">
-      <span>🔒 SSL Secured</span>
-      <span>🔐 Encrypted</span>
-      <span>✅ Verified</span>
-      <span>💯 100% Safe</span>
-    </div>
-    <div>© 2026 All rights reserved.</div>
-  </footer>
+  <div class="footer-text">
+    SSL Secured • Encrypted • Verified • 100% Safe<br>
+    © 2026
+  </div>
 
-  <script>
-    // ── LIVE POPUP ──
-    const feedPeople = [
-      { initials: 'SK', name: 'Sarah K.',    city: 'Austin, TX',      color: '#7C3AED' },
-      { initials: 'JL', name: 'Jessica L.',  city: 'Phoenix, AZ',     color: '#059669' },
-      { initials: 'AT', name: 'Ashley T.',   city: 'Dallas, TX',      color: '#D97706' },
-      { initials: 'CN', name: 'Chelsea N.',  city: 'Denver, CO',      color: '#DB2777' },
-      { initials: 'TH', name: 'Tiffany H.',  city: 'Portland, OR',    color: '#EA580C' },
-      { initials: 'KA', name: 'Kayla A.',    city: 'Las Vegas, NV',   color: '#9333EA' },
-      { initials: 'NB', name: 'Nicole B.',   city: 'San Diego, CA',   color: '#B45309' },
-      { initials: 'LS', name: 'Lauren S.',   city: 'Charlotte, NC',   color: '#C026D3' },
-      { initials: 'MH', name: 'Madison H.',  city: 'Seattle, WA',     color: '#0891B2' },
-      { initials: 'BR', name: 'Brittany R.', city: 'Miami, FL',       color: '#DC2626' },
-      { initials: 'AW', name: 'Amber W.',    city: 'Nashville, TN',   color: '#65A30D' },
-      { initials: 'SC', name: 'Stephanie C.',city: 'Houston, TX',     color: '#0369A1' },
-      { initials: 'HM', name: 'Hannah M.',   city: 'Boston, MA',      color: '#0F766E' },
-      { initials: 'RP', name: 'Rachel P.',   city: 'Chicago, IL',     color: '#1D4ED8' },
-      { initials: 'VT', name: 'Vanessa T.',  city: 'Orlando, FL',     color: '#DB2777' },
-    ];
+</div>
 
-    let usedIndices = [];
-    let currentMins = 2;
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+  <a class="cta-btn" href="https://trksy.org/aff_c?offer_id=3857&aff_id=3471" target="_blank" rel="noopener">
+    Claim Now
+  </a>
+</div>
 
-    function pickPerson() {
-      if (usedIndices.length === feedPeople.length) usedIndices = [];
-      let idx;
-      do { idx = Math.floor(Math.random() * feedPeople.length); }
-      while (usedIndices.includes(idx));
-      usedIndices.push(idx);
-      return feedPeople[idx];
-    }
+<script>
+  // ── LIVE POPUP ──
+  const feedPeople = [
+    { initials: 'SK', name: 'Sarah K.',     city: 'Austin, TX',     color: '#7C3AED' },
+    { initials: 'JL', name: 'Jessica L.',   city: 'Phoenix, AZ',    color: '#059669' },
+    { initials: 'AT', name: 'Ashley T.',    city: 'Dallas, TX',     color: '#D97706' },
+    { initials: 'CN', name: 'Chelsea N.',   city: 'Denver, CO',     color: '#DB2777' },
+    { initials: 'TH', name: 'Tiffany H.',   city: 'Portland, OR',   color: '#EA580C' },
+    { initials: 'KA', name: 'Kayla A.',     city: 'Las Vegas, NV',  color: '#9333EA' },
+    { initials: 'NB', name: 'Nicole B.',    city: 'San Diego, CA',  color: '#B45309' },
+    { initials: 'LS', name: 'Lauren S.',    city: 'Charlotte, NC',  color: '#C026D3' },
+    { initials: 'MH', name: 'Madison H.',   city: 'Seattle, WA',    color: '#0891B2' },
+    { initials: 'BR', name: 'Brittany R.',  city: 'Miami, FL',      color: '#DC2626' },
+    { initials: 'AW', name: 'Amber W.',     city: 'Nashville, TN',  color: '#65A30D' },
+    { initials: 'SC', name: 'Stephanie C.', city: 'Houston, TX',    color: '#0369A1' },
+    { initials: 'HM', name: 'Hannah M.',    city: 'Boston, MA',     color: '#0F766E' },
+    { initials: 'RP', name: 'Rachel P.',    city: 'Chicago, IL',    color: '#1D4ED8' },
+    { initials: 'VT', name: 'Vanessa T.',   city: 'Orlando, FL',    color: '#BE185D' },
+  ];
 
-    function timeLabel(mins) {
-      if (mins <= 0) return 'just now';
-      return mins === 1 ? '1 min ago' : `${mins} mins ago`;
-    }
+  let usedIndices = [];
+  let currentMins = 2;
 
-    function renderPopup(person, mins, animate) {
-      const popup = document.getElementById('livePopup');
-      popup.classList.remove('animating');
-      void popup.offsetWidth; // reflow to restart animation
-      popup.innerHTML = `
-        <div class="live-avatar" style="background:${person.color}">${person.initials}</div>
-        <div class="live-body">
-          <div class="live-name">${person.name} from ${person.city}</div>
-          <div class="live-action">Just claimed their $500 Garage gift card</div>
-        </div>
-        <div class="live-time">${timeLabel(mins)}</div>`;
-      if (animate) popup.classList.add('animating');
-    }
+  function pickPerson() {
+    if (usedIndices.length === feedPeople.length) usedIndices = [];
+    let idx;
+    do { idx = Math.floor(Math.random() * feedPeople.length); }
+    while (usedIndices.includes(idx));
+    usedIndices.push(idx);
+    return feedPeople[idx];
+  }
 
-    // Seed initial entry
-    renderPopup(pickPerson(), 2, false);
+  function timeLabel(mins) {
+    if (mins <= 0) return 'just now';
+    return mins === 1 ? '1 min ago' : `${mins} mins ago`;
+  }
 
-    // Tick time every minute
-    setInterval(() => {
-      currentMins++;
-      const timeEl = document.querySelector('#livePopup .live-time');
-      if (timeEl) timeEl.textContent = timeLabel(currentMins);
-    }, 60000);
+  function renderPopup(person, mins, animate) {
+    const popup = document.getElementById('livePopup');
+    popup.classList.remove('animating');
+    void popup.offsetWidth;
+    popup.innerHTML = `
+      <div class="live-avatar" style="background:${person.color}">${person.initials}</div>
+      <div class="live-body">
+        <div class="live-name">${person.name} from ${person.city}</div>
+        <div class="live-action">Just claimed their $500 Garage gift card</div>
+      </div>
+      <div class="live-time">${timeLabel(mins)}</div>`;
+    if (animate) popup.classList.add('animating');
+  }
 
-    // New person every 20–30 seconds
-    function scheduleNext() {
-      const delay = 20000 + Math.random() * 10000;
-      setTimeout(() => {
-        currentMins = 0;
-        renderPopup(pickPerson(), 0, true);
-        scheduleNext();
-      }, delay);
-    }
-    scheduleNext();
+  renderPopup(pickPerson(), 2, false);
 
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    }
-  </script>
+  setInterval(() => {
+    currentMins++;
+    const el = document.querySelector('#livePopup .live-time');
+    if (el) el.textContent = timeLabel(currentMins);
+  }, 60000);
+
+  function scheduleNext() {
+    const delay = 20000 + Math.random() * 10000;
+    setTimeout(() => {
+      currentMins = 0;
+      renderPopup(pickPerson(), 0, true);
+      scheduleNext();
+    }, delay);
+  }
+  scheduleNext();
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 
 </body>
 </html>
